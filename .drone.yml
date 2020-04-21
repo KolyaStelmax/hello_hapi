@@ -1,7 +1,11 @@
 pipeline:
   build:
     image: node:latest
-    commands: npm install
-  test:
-    image: node:latest
-    commands: npm run test
+    environment:
+      - DEBUG=*
+    commands:
+      - npm install
+      - npm install -g mocha
+      - npm install -g istanbul
+      - npm install -g gulp
+      - npm install -g debug
